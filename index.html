@@ -1,74 +1,360 @@
-/** Environmental Science Unit 3 Qualifier — Chapters 6 and 7.
- * Paste into script.google.com, run setupQuiz, then Deploy > Web app.
- * Execute as: Me. Who has access: Anyone.
- * Copy the Web app /exec URL into index.html ENDPOINT.
- */
-const TITLE = 'ES Unit 3 Chapter 6 & 7 Qualifier Results';
-const TOTAL_SECONDS = 1800;
-const QUESTIONS = [{"section":"6.1","q":"What is a biome?","choices":["A large region defined by climate and life","A single organism","A daily weather report","An underground rock layer"],"answer":0},{"section":"6.1","q":"Which factor most strongly shapes terrestrial biomes?","choices":["Temperature and precipitation","Longitude and moonlight","Ocean tides alone","Earthquake frequency"],"answer":0},{"section":"6.1","q":"What does climate describe?","choices":["Long-term weather patterns","One afternoon's conditions","A single storm","A daily temperature reading"],"answer":0},{"section":"6.1","q":"What does a climatograph typically show?","choices":["Monthly temperature and rainfall","Species names and ages","Wind direction only","Soil pH only"],"answer":0},{"section":"6.1","q":"Which term describes energy captured by producers before respiration?","choices":["Gross primary productivity","Net primary productivity","Secondary succession","Biomagnification"],"answer":0},{"section":"6.1","q":"How is net primary productivity calculated?","choices":["GPP minus plant respiration","GPP plus respiration","Respiration minus GPP","Rainfall divided by sunlight"],"answer":0},{"section":"6.1","q":"Which biome usually has high primary productivity?","choices":["Tropical rain forest","Hot desert","Polar tundra","Bare rock surface"],"answer":0},{"section":"6.1","q":"What is an abiotic factor?","choices":["A nonliving environmental condition","A predator in a food web","A producer species","A decomposer organism"],"answer":0},{"section":"6.1","q":"How can a warming climate affect biome boundaries?","choices":["Shift suitable habitats toward cooler areas","Stop all migration","Remove seasonal variation","Make rainfall identical everywhere"],"answer":0},{"section":"6.1","q":"Which observation best describes weather?","choices":["Today's temperature and rain","Thirty-year rainfall averages","Typical winter climate","A region's long-term drought pattern"],"answer":0},{"section":"6.2","q":"Which biome is warm, wet, and highly diverse year-round?","choices":["Tropical rain forest","Temperate grassland","Tundra","Chaparral"],"answer":0},{"section":"6.2","q":"Which biome has distinct wet and dry seasons with many deciduous trees?","choices":["Tropical dry forest","Boreal forest","Temperate rain forest","Tundra"],"answer":0},{"section":"6.2","q":"Which biome features tropical grasses and scattered trees?","choices":["Savanna","Temperate forest","Taiga","Tundra"],"answer":0},{"section":"6.2","q":"Which adaptation helps desert plants conserve water?","choices":["Waxy cuticles and reduced leaves","Broad thin leaves year-round","Shallow unprotected roots only","Continuous open stomata"],"answer":0},{"section":"6.2","q":"Which biome has mild temperatures and heavy rainfall near coasts?","choices":["Temperate rain forest","Hot desert","Savanna","Tundra"],"answer":0},{"section":"6.2","q":"Which biome commonly contains trees that shed leaves in autumn?","choices":["Temperate deciduous forest","Tropical rain forest","Desert","Tundra"],"answer":0},{"section":"6.2","q":"Why do grasses thrive in many temperate grasslands?","choices":["Their growing points survive grazing and fire","They require year-round flooding","They lack root systems","They cannot tolerate sunlight"],"answer":0},{"section":"6.2","q":"Which biome has dry summers, wet winters, and fire-adapted shrubs?","choices":["Chaparral","Tundra","Tropical rain forest","Freshwater wetland"],"answer":0},{"section":"6.2","q":"Which biome is dominated by cold-tolerant conifers?","choices":["Boreal forest","Savanna","Tropical dry forest","Desert"],"answer":0},{"section":"6.2","q":"What is permafrost?","choices":["Soil that stays frozen for at least two years","Seasonally flooded soil","A layer of ocean salt","Soil made entirely of sand"],"answer":0},{"section":"6.3","q":"What is salinity?","choices":["The concentration of dissolved salts","The speed of water flow","The depth of a lake","The amount of sunlight"],"answer":0},{"section":"6.3","q":"What defines the photic zone?","choices":["Enough light for photosynthesis","No sunlight at any time","Only frozen water","Only ocean-floor sediments"],"answer":0},{"section":"6.3","q":"What is the aphotic zone?","choices":["Water with too little light for photosynthesis","The shallow shoreline","The top sunlit layer","A salt-free ocean zone"],"answer":0},{"section":"6.3","q":"What does benthic refer to?","choices":["The bottom of a water body","The atmosphere above a lake","Floating surface algae","A river's drainage basin"],"answer":0},{"section":"6.3","q":"Where are rooted plants common in a lake?","choices":["The shallow littoral zone","The deepest abyssal zone","The dark open-ocean zone","The mid-ocean ridge"],"answer":0},{"section":"6.3","q":"What is an estuary?","choices":["Where river freshwater mixes with seawater","A landlocked desert basin","A permanently frozen lake","A dry river channel"],"answer":0},{"section":"6.3","q":"Which is an ecosystem service provided by wetlands?","choices":["Filtering water and reducing floods","Increasing coastal erosion","Removing all nutrients","Stopping groundwater recharge"],"answer":0},{"section":"6.3","q":"Which organism forms the base of many open-water food webs?","choices":["Phytoplankton","Large sharks","Marine mammals","Seabirds"],"answer":0},{"section":"6.3","q":"What mainly limits photosynthesis in deep water?","choices":["Low light availability","Too many rocks","High atmospheric oxygen","Lack of tides everywhere"],"answer":0},{"section":"6.3","q":"Why are coral reefs often found in clear, shallow tropical water?","choices":["Symbiotic algae need sunlight","Corals need freezing temperatures","Reefs grow only in freshwater","All corals avoid sunlight"],"answer":0},{"section":"7.1","q":"What is biodiversity?","choices":["Variety of life at several levels","Number of rocks in soil","Amount of rain in a biome","Total daylight in a year"],"answer":0},{"section":"7.1","q":"What is genetic diversity?","choices":["Variation in genes within a species","Number of ecosystems on Earth","Number of predators in one area","Range of annual temperatures"],"answer":0},{"section":"7.1","q":"What is species diversity?","choices":["Variety of species in a community","Only variation within one genome","Only soil nutrient variety","Only seasonal climate change"],"answer":0},{"section":"7.1","q":"What is ecosystem diversity?","choices":["Variety of habitats and ecosystems","Number of individuals in one species","Variation in leaf color only","Number of cells in an organism"],"answer":0},{"section":"7.1","q":"What does species richness measure?","choices":["Number of species present","Equal abundance of species","Total rainfall","Size of the largest species"],"answer":0},{"section":"7.1","q":"What does species evenness describe?","choices":["How equally individuals are distributed among species","How many habitats exist worldwide","How quickly rocks erode","How long a species lives"],"answer":0},{"section":"7.1","q":"Which is an ecosystem service?","choices":["Pollination of crops","Habitat fragmentation","Illegal poaching","Introduction of invasive pests"],"answer":0},{"section":"7.1","q":"Why can biodiversity improve ecosystem resilience?","choices":["Different species can support overlapping functions","Every species uses identical resources","Disturbances never occur","It prevents all environmental change"],"answer":0},{"section":"7.1","q":"Which example shows genetic diversity?","choices":["Different inherited traits among wolves","Forest versus grassland","Frogs versus birds","River versus lake"],"answer":0},{"section":"7.1","q":"Which community has greater species richness?","choices":["One with twelve species rather than six","One with more individuals of one species","One with taller plants only","One with higher temperatures"],"answer":0},{"section":"7.2","q":"What is extinction?","choices":["Permanent loss of a species worldwide","Temporary migration","Loss from one local area only","Seasonal population change"],"answer":0},{"section":"7.2","q":"What is extirpation?","choices":["Disappearance from a local area","Loss of every member worldwide","Normal reproduction","Rapid speciation"],"answer":0},{"section":"7.2","q":"What is background extinction?","choices":["Typical ongoing extinction rate","Loss of all species at once","A conservation success","An annual population count"],"answer":0},{"section":"7.2","q":"What is an endangered species?","choices":["A species at very high risk of extinction","A species that is always abundant","A newly introduced crop","A species with no predators"],"answer":0},{"section":"7.2","q":"What is a threatened species?","choices":["A species likely to become endangered","A species already extinct","A species always invasive","A species found only in captivity"],"answer":0},{"section":"7.2","q":"What is habitat fragmentation?","choices":["Breaking continuous habitat into isolated patches","Connecting habitats with corridors","Increasing one large habitat","Removing all roads from a forest"],"answer":0},{"section":"7.2","q":"Why can invasive species reduce native biodiversity?","choices":["They may outcompete or prey on native species","They always increase native populations","They cannot reproduce","They never alter habitats"],"answer":0},{"section":"7.2","q":"What is overharvesting?","choices":["Removing organisms faster than they can recover","Restoring damaged wetlands","Breeding endangered species","Protecting a marine reserve"],"answer":0},{"section":"7.2","q":"Which action is poaching?","choices":["Illegal hunting or capture of wildlife","Monitoring a wildlife corridor","Planting native trees","Studying animal migration"],"answer":0},{"section":"7.2","q":"Which pressure can shift habitats and threaten species?","choices":["Climate change","Habitat restoration","Wildlife protection","Removal of invasive species"],"answer":0},{"section":"7.3","q":"What is conservation biology focused on?","choices":["Protecting biodiversity and ecosystems","Increasing habitat destruction","Replacing every native species","Eliminating all natural disturbances"],"answer":0},{"section":"7.3","q":"What is a biodiversity hotspot?","choices":["A region rich in endemic species under major threat","Any region with high temperatures","An area with no human influence","A single-species enclosure"],"answer":0},{"section":"7.3","q":"What is an endemic species?","choices":["A species naturally restricted to one region","A species found on every continent","A species introduced by people","A species with no habitat needs"],"answer":0},{"section":"7.3","q":"Why are wildlife corridors useful?","choices":["They connect habitats and support movement","They isolate breeding populations","They block all migration","They replace every protected area"],"answer":0},{"section":"7.3","q":"What is habitat restoration?","choices":["Repairing damaged ecosystems","Increasing pollution","Expanding habitat fragmentation","Removing native vegetation"],"answer":0},{"section":"7.3","q":"What is captive breeding?","choices":["Breeding threatened animals under human care","Illegal trade in wild animals","Destroying nesting sites","Introducing pests to islands"],"answer":0},{"section":"7.3","q":"What is a protected area?","choices":["Land or water managed to conserve nature","A place where hunting is unrestricted","An area cleared for development","A region without any regulations"],"answer":0},{"section":"7.3","q":"How can removing an invasive species help?","choices":["Reduce pressure on native organisms","Guarantee every species survives","Increase competition from invaders","Remove all natural predators"],"answer":0},{"section":"7.3","q":"Which policy helps protect at-risk species?","choices":["Laws restricting harm and habitat destruction","Removing habitat safeguards","Encouraging illegal wildlife trade","Eliminating population monitoring"],"answer":0},{"section":"7.3","q":"Which plan best combines conservation strategies?","choices":["Protect habitat, connect patches, and monitor populations","Fragment habitats and remove native plants","Expand poaching and invasive species","Replace wetlands with pavement"],"answer":0}];
 
-function setupQuiz() {
-  const props = PropertiesService.getScriptProperties();
-  let id = props.getProperty('SHEET_ID');
-  let ss = id ? SpreadsheetApp.openById(id) : SpreadsheetApp.create(TITLE);
-  props.setProperty('SHEET_ID', ss.getId());
-  let sh = ss.getSheetByName('Results') || ss.insertSheet('Results');
-  if (sh.getLastRow() === 0) sh.appendRow(['Submitted at','Student name','Block','Score','Total','Percent','Started at','Attempt ID','Missed questions']);
-  let at = ss.getSheetByName('Attempts') || ss.insertSheet('Attempts');
-  if (at.getLastRow() === 0) at.appendRow(['Attempt ID','Student key','Student name','Block','Started at','Question order','Choice order','Submitted']);
-  Logger.log('RESULTS SHEET: ' + ss.getUrl());
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Environmental Science Unit 3 Qualifier | Chapters 6 &amp; 7</title>
+<style>
+:root{font-family:system-ui,Arial,sans-serif;color:#19364a;background:#eef5f8}
+*{box-sizing:border-box}
+body{margin:0}
+header{background:#164b67;color:white;padding:28px 18px;text-align:center}
+h1{margin:0;font-size:clamp(1.6rem,4vw,2.3rem)}
+main{max-width:850px;margin:20px auto;padding:0 15px}
+.card{background:white;padding:22px;border-radius:14px;margin:16px 0;box-shadow:0 2px 12px #143d5420}
+h2{margin-top:0;color:#164b67}
+details{background:#f2f8fb;padding:12px 15px;border-radius:8px;margin:9px 0}
+summary{font-weight:700;cursor:pointer}
+input,button{font:inherit;padding:12px;border-radius:8px}
+input{width:100%;border:1px solid #a4bac8;margin:6px 0 13px}
+button{border:0;background:#146a8b;color:white;font-weight:700;cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+.option{display:block;width:100%;text-align:left;background:#f5fafc;color:#18394c;border:2px solid #d4e5ed;margin:10px 0;padding:15px}
+.option:hover{border-color:#146a8b}
+.muted{color:#516d7c}
+.timers{display:flex;justify-content:space-between;gap:12px;background:#eaf5fa;border-radius:8px;padding:12px;font-weight:700}
+.warning{color:#a83222}
+#review-missed li{margin:12px 0}
+footer{text-align:center;padding:18px;color:#607987}
+section[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+<h1>🌎 Environmental Science Unit 3 Qualifier</h1>
+<p>Chapter 6: Biomes &amp; Aquatic Ecosystems • Chapter 7: Biodiversity</p>
+</header>
+<main>
+<section id="intro" class="card">
+<h2>Study review — read before starting</h2>
+<p><strong>60 questions • 30 minutes total • 30 seconds per question • one attempt</strong></p>
+
+<details open>
+<summary>6.1 — Defining Biomes</summary>
+<p>Review climate versus weather, temperature and precipitation, climatographs, abiotic factors, and gross versus net primary productivity (NPP = GPP − producer respiration).</p>
+</details>
+
+<details>
+<summary>6.2 — Terrestrial Biomes</summary>
+<p>Review tropical rain forest, tropical dry forest, savanna, desert, temperate rain forest, temperate deciduous forest, temperate grassland, chaparral, boreal forest (taiga), and tundra. Know their climates, vegetation, and adaptations.</p>
+</details>
+
+<details>
+<summary>6.3 — Aquatic Ecosystems</summary>
+<p>Review salinity; photic, aphotic, and benthic zones; littoral and limnetic zones; wetlands; estuaries; plankton; coral reefs; and aquatic ecosystem services.</p>
+</details>
+
+<details>
+<summary>7.1 — Our Planet of Life</summary>
+<p>Review genetic, species, and ecosystem diversity; species richness and evenness; ecosystem services; and resilience.</p>
+</details>
+
+<details>
+<summary>7.2 — Extinction &amp; Biodiversity Loss</summary>
+<p>Review extinction versus extirpation, background extinction, endangered versus threatened species, habitat loss and fragmentation, invasive species, overharvesting, poaching, and climate change.</p>
+</details>
+
+<details>
+<summary>7.3 — Protecting Biodiversity</summary>
+<p>Review conservation, biodiversity hotspots, endemic species, wildlife corridors, habitat restoration, captive breeding, protected areas, and conservation laws.</p>
+</details>
+
+<p class="muted">Questions and answer choices are shuffled. The timer begins when you start. Each question advances after an answer or 30 seconds. You cannot go back. Your score and missed questions appear after submission, but correct answers remain hidden.</p>
+</section>
+
+<section id="entry" class="card">
+<h2>Start your qualifier</h2>
+<label for="student">First and last name</label>
+<input id="student" placeholder="First Last" autocomplete="name">
+<label for="block">Class block</label>
+<input id="block" placeholder="Example: 3rd Block">
+<p id="connection" class="muted">Checking quiz connection…</p>
+<button id="start" disabled>Start qualifier</button>
+</section>
+
+<section id="quiz" class="card" hidden>
+<div class="timers">
+<span>Time remaining: <strong id="total-time">30:00</strong></span>
+<span>Question time: <strong id="question-time">0:30</strong></span>
+</div>
+<p id="progress"></p>
+<h2 id="question"></h2>
+<div id="options"></div>
+<p class="muted">Select one answer to move on. Unanswered questions are skipped automatically after 30 seconds.</p>
+<button id="submit-early" type="button">Submit now</button>
+</section>
+
+<section id="results" class="card" hidden>
+<h2>Qualifier complete</h2>
+<h3 id="score"></h3>
+<p>Review these questions with your notes. The correct answers are not displayed.</p>
+<ol id="review-missed"></ol>
+</section>
+
+<section id="error" class="card" hidden>
+<h2>Something needs attention</h2>
+<p id="error-message" class="warning"></p>
+</section>
+</main>
+
+<footer>Mrs. Abney • Environmental Science Unit 3 • Chapters 6–7</footer>
+
+<script>
+'use strict';
+
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbzdNdiA0PGk6plMjMfjtmlpfUFXDnyDtdEwJ5an3s6w7yg3h_l3ie4KZsouP3xzsmgo/exec';
+
+const $ = id => document.getElementById(id);
+const sections = ['intro','entry','quiz','results','error'];
+
+let attempt = null;
+let answers = [];
+let index = 0;
+let totalDeadline = 0;
+let itemDeadline = 0;
+let ticker = null;
+let submitting = false;
+
+function show(id) {
+  sections.forEach(x => {
+    $(x).hidden = x !== id && !(id === 'entry' && x === 'intro');
+  });
 }
-function respond_(data, callback) {
-  const json = JSON.stringify(data);
-  if (!/^[A-Za-z_$][\w$]*$/.test(callback || '')) return ContentService.createTextOutput(json).setMimeType(ContentService.MimeType.JSON);
-  return ContentService.createTextOutput(callback+'('+json+');').setMimeType(ContentService.MimeType.JAVASCRIPT);
+
+function jsonp(params) {
+  return new Promise((resolve,reject) => {
+    const callback = 'esq_' + Math.random().toString(36).slice(2);
+    const url = new URL(ENDPOINT);
+    const s = document.createElement('script');
+    let done = false;
+    const timeout = setTimeout(
+      () => finish(new Error('The connection timed out.')),
+      25000
+    );
+
+    function finish(err,data) {
+      if(done) return;
+      done = true;
+      clearTimeout(timeout);
+      delete window[callback];
+      s.remove();
+      err ? reject(err) : resolve(data);
+    }
+
+    window[callback] = data => finish(null,data);
+    url.searchParams.set('callback',callback);
+
+    Object.entries(params).forEach(([k,v]) => {
+      url.searchParams.set(k,String(v));
+    });
+
+    s.onerror = () => finish(
+      new Error('Could not connect to Google Apps Script.')
+    );
+    s.src = url;
+    s.async = true;
+    document.head.appendChild(s);
+  });
 }
-function shuffle_(items) { const a=items.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
-function sheets_() {const id=PropertiesService.getScriptProperties().getProperty('SHEET_ID');if(!id)throw Error('Run setupQuiz first.');const ss=SpreadsheetApp.openById(id);return {results:ss.getSheetByName('Results'),attempts:ss.getSheetByName('Attempts')};}
-function clean_(s) {return String(s||'').trim().replace(/\s+/g,' ').slice(0,100);}
-function key_(name,block) {return (name+'|'+block).toLowerCase();}
-function getRows_(sheet){return sheet.getDataRange().getValues();}
-function doGet(e) {
- const p=e.parameter||{}, cb=p.callback;
- try {return respond_(handle_(p),cb);} catch(err) {return respond_({ok:false,error:String(err.message||err)},cb);}
+
+function format(sec) {
+  sec = Math.max(0,Math.ceil(sec));
+  return Math.floor(sec/60) + ':' +
+    String(sec%60).padStart(2,'0');
 }
-function handle_(p) {
- const action=p.action;
- if(action==='status')return {ok:true,title:TITLE,questions:60,seconds:TOTAL_SECONDS};
- const sh=sheets_();
- if(action==='start') {
-  const name=clean_(p.name), block=clean_(p.block);
-  if(name.split(' ').length<2||!block)throw Error('Enter first and last name and class block.');
-  const lock=LockService.getScriptLock();lock.waitLock(15000);
+
+function error(message) {
+  clearInterval(ticker);
+  $('error-message').textContent = message;
+  show('error');
+}
+
+async function check() {
   try {
-   const rows=getRows_(sh.attempts), key=key_(name,block);
-   if(rows.slice(1).some(r=>r[1]===key))throw Error('An attempt already exists for this name and block. Ask your teacher for help.');
-   const id=Utilities.getUuid(), order=shuffle_(QUESTIONS.map((_,i)=>i)), choiceOrders=order.map(()=>shuffle_([0,1,2,3]));
-   const started=new Date();
-   sh.attempts.appendRow([id,key,name,block,started,JSON.stringify(order),JSON.stringify(choiceOrders),'']);
-   return {ok:true,attemptId:id,startedAt:started.toISOString(),questions:order.map((qi,j)=>({section:QUESTIONS[qi].section,text:QUESTIONS[qi].q,choices:choiceOrders[j].map(k=>QUESTIONS[qi].choices[k])}))};
-  }finally{lock.releaseLock();}
- }
- if(action==='submit') {
-  const id=clean_(p.attemptId), responses=String(p.answers||'').split(',').map(x=>Number(x));
-  const lock=LockService.getScriptLock();lock.waitLock(15000);
-  try {
-   const rows=getRows_(sh.attempts), index=rows.findIndex((r,i)=>i>0&&r[0]===id);
-   if(index<1)throw Error('Attempt not found.');
-   const r=rows[index];if(r[7])throw Error('This attempt was already submitted.');
-   const order=JSON.parse(r[5]),choiceOrders=JSON.parse(r[6]);
-   if(responses.length!==60||responses.some(n=>!Number.isInteger(n)||n< -1||n>3))throw Error('Invalid answer list.');
-   const started=new Date(r[4]), elapsed=(Date.now()-started.getTime())/1000;
-   if(elapsed<0)throw Error('Invalid start time.');
-   let score=0,missed=[];
-   order.forEach((qi,j)=>{const q=QUESTIONS[qi],selected=responses[j],correct=choiceOrders[j].indexOf(q.answer);if(selected===correct)score++;else missed.push({number:j+1,section:q.section,question:q.q,yourAnswer:selected===-1?'Not answered':q.choices[choiceOrders[j][selected]]});});
-   const percent=Math.round(score*100/60);
-   sh.results.appendRow([new Date(),r[2],r[3],score,60,percent,started,id,missed.map(m=>m.number+': '+m.question).join(' | ')]);
-   sh.attempts.getRange(index+1,8).setValue(new Date());
-   return {ok:true,score,total:60,percent,missed,timeExpired:elapsed>TOTAL_SECONDS};
-  }finally{lock.releaseLock();}
- }
- throw Error('Unknown action.');
+    const r = await jsonp({action:'status'});
+    if(!r.ok) throw Error(r.error);
+    $('connection').textContent =
+      'Connected • Ready for your attempt';
+    $('start').disabled = false;
+  } catch(e) {
+    $('connection').textContent = e.message;
+  }
 }
 
+function render() {
+  if(index >= attempt.questions.length) {
+    submit();
+    return;
+  }
 
+  const q = attempt.questions[index];
+  $('progress').textContent =
+    'Question ' + (index+1) +
+    ' of 60 • Section ' + q.section;
+  $('question').textContent = q.text;
+
+  const el = $('options');
+  el.replaceChildren();
+
+  q.choices.forEach((c,i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'option';
+    b.textContent =
+      String.fromCharCode(65+i) + '. ' + c;
+
+    b.onclick = () => {
+      if(submitting) return;
+      answers[index] = i;
+      index++;
+      itemDeadline = Date.now() + 30000;
+      render();
+    };
+
+    el.appendChild(b);
+  });
+
+  show('quiz');
+  clock();
+}
+
+function clock() {
+  const total =
+    Math.ceil((totalDeadline-Date.now())/1000);
+  const item =
+    Math.ceil((itemDeadline-Date.now())/1000);
+
+  $('total-time').textContent = format(total);
+  $('question-time').textContent = format(item);
+
+  if(total <= 0) {
+    submit();
+    return;
+  }
+
+  if(item <= 0 && !submitting) {
+    answers[index] = -1;
+    index++;
+    itemDeadline = Date.now() + 30000;
+    render();
+  }
+}
+
+async function start() {
+  const name = $('student').value.trim();
+  const block = $('block').value.trim();
+
+  if(name.split(/\s+/).length < 2 || !block) {
+    alert('Enter your first and last name and class block.');
+    return;
+  }
+
+  $('start').disabled = true;
+  $('connection').textContent =
+    'Starting your attempt…';
+
+  try {
+    const r = await jsonp({
+      action:'start',
+      name,
+      block
+    });
+
+    if(!r.ok) throw Error(r.error);
+
+    attempt = r;
+    answers = Array(60).fill(-1);
+    index = 0;
+    totalDeadline =
+      new Date(r.startedAt).getTime() + 1800000;
+    itemDeadline = Date.now() + 30000;
+
+    ticker = setInterval(clock,200);
+    render();
+
+  } catch(e) {
+    $('connection').textContent = e.message;
+    $('start').disabled = false;
+  }
+}
+
+async function submit() {
+  if(submitting || !attempt) return;
+
+  submitting = true;
+  clearInterval(ticker);
+
+  $('options').replaceChildren();
+  $('question').textContent =
+    'Submitting your qualifier…';
+  $('submit-early').disabled = true;
+
+  try {
+    const r = await jsonp({
+      action:'submit',
+      attemptId:attempt.attemptId,
+      answers:answers.join(',')
+    });
+
+    if(!r.ok) throw Error(r.error);
+
+    $('score').textContent =
+      r.score + ' / ' + r.total +
+      ' correct — ' + r.percent + '%';
+
+    const list = $('review-missed');
+    list.replaceChildren();
+
+    r.missed.forEach(m => {
+      const li = document.createElement('li');
+      li.textContent =
+        'Question ' + m.number +
+        ' (Section ' + m.section + '): ' +
+        m.question +
+        ' — Your answer: ' + m.yourAnswer;
+      list.appendChild(li);
+    });
+
+    if(!r.missed.length) {
+      const li = document.createElement('li');
+      li.textContent =
+        'You answered every question correctly!';
+      list.appendChild(li);
+    }
+
+    show('results');
+
+  } catch(e) {
+    error(
+      'Your submission could not be confirmed: ' +
+      e.message +
+      ' Contact your teacher before trying again.'
+    );
+  }
+}
+
+$('start').addEventListener('click',start);
+
+$('submit-early').addEventListener('click',() => {
+  if(confirm(
+    'Submit your qualifier now? Unanswered questions will count as missed.'
+  )) {
+    submit();
+  }
+});
+
+check();
+</script>
+</body>
+</html>
