@@ -30,12 +30,14 @@ function doPost(e) {
     const missed = Array.isArray(p.missed)
       ? p.missed.slice(0, 60).map(x => safeText_(x, 150)).join("; ") : "";
     const now = new Date(); // trusted server-side submission timestamp
-    // Date, student, class, attempt, correct, total, percentage, missed, essay, seconds, status.
-    // Column L's existing formula flags late attempts; leave it untouched.
-    tab.appendRow([now, name, block, attempt, correct, total,
+    // Date, student, class, attempt, correct, total, percentage, missed, essay, seconds, status, late flag.
+    // Set the late flag at the time of submission; no full-column ARRAYFORMULA is needed.
+    const cutoff = new Date("2026-11-21T00:00:00-05:00");
+    const deadlineStatus = now >= cutoff ? "LATE" : "ON TIME";
+    const row = last + 1;
+    tab.getRange(row, 1, 1, 12).setValues([[now, name, block, attempt, correct, total,
         Math.round(correct / total * 100), missed, essay,
-        Math.round(used), "Completed"]);
-    const row = tab.getLastRow();
+        Math.round(used), "Completed", deadlineStatus]]);
     tab.getRange(row, 1).setNumberFormat("mmm d, yyyy h:mm AM/PM");
     return json_({ok:true,attempt:attempt});
   } catch (err) {
